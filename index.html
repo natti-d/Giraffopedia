@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giraffopedia</title>
+    <!--Икона-->
+    <link rel="icon" type="image/x-icon" href="./images/icon_giraffe.ico">
+    <style>
+        body {
+            margin: 0;
+            top: 0;
+        }
+
+        header {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-align: center;
+            color: #4b2607;
+        }
+
+        nav {
+            display: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            background-image: url(./images/g_print.png);
+            background-position: center;
+            border-radius: 5px;
+            margin: 0 3px 0 3px;
+            padding: 8px 15px;
+            border: 1px solid #f59e42;
+        }
+
+        nav a button {
+            font-size: 1rem;
+            color: white;
+            background-color: #f59e42;
+            border: 1px solid rgba(240, 248, 255, 0.358);
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            height: 100%;
+        }
+
+        nav a button:hover {
+            padding: 6px 10px;
+            border: 1px solid #f59e42;
+            background-color: white;
+            color: #f59e42;
+        }
+
+        #content {
+            background-color: #f59e42;
+            align-items: stretch;
+            min-height: 100vh;
+        }
+
+        #left-col {
+            margin: 2%;
+            width: 21%;
+            display: flex;
+            flex-direction: column;
+            background-image: url(./images/g-print-bg.png);
+            background-position: center;
+            background-size: cover;
+            border: 2px solid #733a0c;
+            min-height: 100%;
+            text-align: center;
+        }
+
+        #left-col a {
+            text-decoration: none;
+        }
+
+        #left-col a button {
+            background-color: #f59e42;
+            border-radius: 5px;
+            border: 2px solid #733a0c;
+            color: white;
+            font-size: 1.3rem;
+            margin: 5px 0 5px 5px;
+            padding: 10px 15px;
+            transition: 0.3s;
+            width: 80%;
+        }
+
+        #left-col a button:hover {
+            background-color: white;
+            color: #733a0c;
+        }
+
+        #main-cont {
+            width: 48%;
+            margin: 2% 0;
+            padding: 0 2%;
+            flex: 1;
+            min-height: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin: 8px auto 8px auto;
+            color: #4b2607;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #733a0c;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 1.7rem;
+            color: #733a0c;
+            margin: 15px auto 8px auto;
+        }
+
+        hr {
+            background-color: #733a0c;
+            height: 1px;
+            border: 0;
+        }
+
+        ul {
+            color: #733a0c;
+            font-size: 1.2rem;
+            list-style-type: circle;
+        }
+
+        #right-col {
+            margin: 2%;
+            width: 21%;
+            display: flex;
+            flex-direction: column;
+            background-image: url(./images/g-print-bg.png);
+            background-position: center;
+            background-size: cover;
+            border: 2px solid #733a0c;
+            min-height: 100%;
+        }
+
+        #gallery {
+            background-color: #4b2607;
+            display: flex;
+        }
+
+        #photos {
+            width: 46%;
+            margin: 2%;
+            border: 1px solid #f59e42;
+        }
+
+        #photos #all-photos-1024-768 {
+            display: none;
+        }
+
+        #photos div img {
+            /*filter: grayscale(1) brightness(0.5);*/
+            filter: sepia(100%) hue-rotate(335deg) brightness(60%) saturate(300%);
+            transition: 0.1s;
+        }
+
+        #photos img:hover {
+            filter: sepia(0%);
+        }
+
+        #videos {
+            width: 46%;
+            margin: 2%;
+            border: 1px solid #f59e42;
+        }
+
+        #videos #all-videos div {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            border: 1px solid #f59e42;
+            padding: 5px;
+        }
+
+        #photos h3,
+        #videos div h3 {
+            color: #f59e42;
+            font-size: 1.5rem;
+        }
+
+        video {
+            margin: auto;
+        }
+
+
+        footer {
+            background-color: #fff0df;
+            color: #4b2607;
+            width: 100%;
+            padding: 30px 0 15px 0;
+            border-top: 10px dashed #4b2607;
+        }
+
+        #contactDiv {
+            display: flex;
+            justify-content: center;
+        }
+
+        #contactDiv img {
+            margin: 2px;
+        }
+
+        @media only screen and (max-width: 1200px) {
+            header {
+                width: 40%;
+            }
+
+            nav {
+                display: flex;
+                width: 75%;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            #left-col {
+                display: none;
+            }
+
+            #right-col {
+                display: none;
+            }
+
+            #main-cont div {
+                width: 80%;
+                margin: auto;
+            }
+
+            #gallery {
+                display: flex;
+                flex-direction: column;
+            }
+
+            #photos,
+            #videos {
+                width: 80%;
+                margin: auto;
+            }
+
+            #photos #all-photos {
+                display: flex;
+            }
+
+            #videos #all-videos {
+                display: flex;
+                flex-direction: row;
+            }
+
+            #videos #all-videos div {
+                flex-direction: column;
+            }
+
+            video {
+                width: 150px;
+            }
+
+        }
+
+        @media only screen and (max-width: 1024px) {
+            #photos #all-photos div {
+                flex-direction: column;
+            }
+
+            #photos #all-photos div img {
+                width: 98%;
+            }
+        }
+
+
+        @media only screen and (max-width: 768px) {
+            header {
+                width: 80%;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                width: 80%;
+            }
+
+            #videos #all-videos {
+                display: flex;
+                flex-direction: column;
+            }
+
+            #photos #all-photos div img {
+                filter: sepia(0%);
+            }
+
+            #photos h3{
+                display: none;
+            }
+
+            video {
+                width: 250px;
+            }
+
+            #contactDiv img {
+                margin: 2.5px;
+            }
+
+            footer h2{
+                font-size: 1.5rem;
+            }
+
+            footer h3{
+                font-size: 1.1rem;
+            }
+        }
+
+        /*Сравнявано с минимум 320px, така като това е най-малката ширина на екран, според https://protostar.space */
+        @media only screen and (max-width: 480px) {
+
+            nav a {
+                margin: 0 3px;
+                padding: 8px 5px;
+            }
+
+            #photos #all-photos {
+                display: flex;
+            }
+
+            #photos #all-photos div img {
+                width: 98%;
+            }
+
+            #contactDiv img {
+                margin: 4px;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: #fff0df;">
+    <main style="justify-content: center;">
+        <header style="display: flex; justify-content: center; border-bottom: 5px dashed #f59e42; margin: 0 auto;">
+            <img src="./images/icon_giraffe.png" alt="Giraffe Icon" style="align-items: center; margin: auto 0;"
+                width="90px">
+            <h1>Giraffopedia</h1>
+        </header>
+
+        <nav style="margin: 15px auto 10px auto; justify-content: center;">
+            <a href="index.html#main-cont"><button><b>Explore Giraffes</b></button></a>
+            <a href="index.html#photos"><button><b>View Gallery</b></button></a>
+            <a href="index.html#videos"><button><b>Watch Videos</b></button></a>
+        </nav>
+
+        <div id="content" style="display: flex;">
+            <div id="left-col">
+                <a href="index.html#main-cont"><button><b>Explore Giraffes</b></button></a>
+                <a href="index.html#photos"><button><b>View Gallery</b></button></a>
+                <a href="index.html#videos"><button><b>Watch Videos</b></button></a>
+            </div>
+
+            <div id="main-cont">
+                <h2>All About Giraffes: The Gentle Giants of Africa</h2>
+                <div style="background-color: #ffca8e; padding: 2%; border: 1px dashed #733a0c;">
+                    <p>Giraffes are the tallest land animals on Earth. With their long necks and spotted coats, they are
+                        easy to recognize and fun to learn about. Let’s explore some cool facts about these gentle
+                        giants!
+                    </p>
+
+                    <hr>
+
+                    <h3>Where Do Giraffes Live?</h3>
+                    <p>Giraffes live in parts of Africa, mostly in savannas, grasslands, and open woodlands. These
+                        places
+                        have lots of trees, which giraffes love because they eat leaves!
+                    </p>
+
+                    <hr>
+
+                    <h3>What Do Giraffes Eat?</h3>
+                    <p>Giraffes are herbivores, which means they eat only plants. Their favorite food is the leaves of
+                        the
+                        acacia tree. Their long necks help them reach the tallest branches, and their tongues—up to 18
+                        inches (45 cm) long—help them grab leaves with ease. Their tongues are even purple to protect
+                        them
+                        from sunburn!
+                    </p>
+
+                    <hr>
+
+                    <h3>How Tall Are Giraffes?</h3>
+                    <p>Giraffes can grow up to 18 feet (5.5 meters) tall. Their legs alone are taller than many
+                        people—about
+                        6 feet (1.8 meters)! Male giraffes are usually taller than females.
+                    </p>
+
+                    <hr>
+
+                    <h3>Why Do Giraffes Have Spots?</h3>
+                    <p>Each giraffe has a unique pattern of spots—just like a fingerprint! The spots help them blend in
+                        with
+                        trees and shadows, which can help protect them from predators like lions.
+                    </p>
+
+                    <hr>
+
+                    <h3>Fun Facts!</h3>
+                    <ul>
+                        <li>A giraffe’s heart is two feet long!</li>
+                        <li>They can run up to 35 miles per hour (56 km/h) for short distances.</li>
+                        <li>They only need to drink water every few days—most of their water comes from plants.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="right-col">
+            </div>
+        </div>
+
+        <div id="gallery">
+            <!--Генерирани с https://leonardo.ai/-->
+            <div id="photos">
+                <h2 style="color: #4b2607; background-color: #f59e42;">Giraffe Photos</h2>
+                <h3>Hover on the photos!</h3>
+
+                <div id="all-photos">
+                    <div style="display: flex;">
+                        <img src="./images/giraffe1.jpg" alt="Giraffe" width="48%" style="margin: 1%;">
+                        <img src="./images/giraffe6.jpg" alt="Giraffe" width="48%" style="margin: 1%;">
+                    </div>
+                    <div style="display: flex;">
+                        <img src="./images/giraffe3.jpg" alt="Giraffe" width="48%" style="margin: 1%;">
+                        <img src="./images/giraffe4.jpg" alt="Giraffe" width="48%" style="margin: 1%;">
+                    </div>
+                    <div style="display: flex;">
+                        <img src="./images/giraffe2.jpg" alt="Giraffe" width="48%" style="margin: 1%;">
+                        <img src="./images/giraffe6.jpg" alt="Giraffe" width="48%" style="margin: 1%;">
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Генерирани с https://fliki.ai/ -->
+            <div id="videos" style="display: flex; justify-content: center; flex-direction: column;">
+
+                <h2 style="color: #4b2607; background-color: #f59e42; width: 100%;">Giraffe Videos</h2>
+
+                <div id="all-videos">
+                    <div>
+                        <h3>Giraffes<br>Gentle Giants of the Savannah</h3>
+                        <video width="400" controls>
+                            <source src="./mp4/giraffe_introduction.mp4" type="video/mp4">
+                            Your browser does not support HTML video.
+                        </video>
+                    </div>
+
+                    <div>
+                        <h3>A day in the life of Gerald The Giraffe</h3>
+                        <video width="400" controls>
+                            <source src="./mp4/Gerald_The_Giraffe.mp4" type="video/mp4">
+                            Your browser does not support HTML video.
+                        </video>
+                    </div>
+
+                    <div>
+                        <h3>Giraffe's Great Escape</h3>
+                        <video width="400" controls>
+                            <source src="./mp4/Giraffes_Great_Escape.mp4" type="video/mp4">
+                            Your browser does not support HTML video.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <h2>All rights reserved © 2025 Giraffopedia</h2>
+        <h3>Natalia Dimitrova</h3>
+        <h4 style="text-align: center; font-size: 15px; margin: 3px auto 2px auto; color: #733a0c;">Свържи се с нас</h4>
+        <!--Икони от https://icons8.com -->
+        <div id="contactDiv">
+            <img width="25" height="25" src="https://img.icons8.com/ios/50/facebook-new.png" alt="Facebook"/>
+            <img width="25" height="25" src="https://img.icons8.com/ios/50/instagram-new--v1.png" alt="Instagram"/>
+           <img width="25" height="25" src="https://img.icons8.com/ios/50/gmail--v1.png" alt="Gmail"/>
+        </div>
+    </footer>
+</body>
+
+</html>
