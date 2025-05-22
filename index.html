@@ -27,7 +27,7 @@
             display: none;
         }
 
-        nav a {
+        nav span {
             text-decoration: none;
             background-image: url(./images/g_print.png);
             background-position: center;
@@ -37,7 +37,7 @@
             border: 1px solid #f59e42;
         }
 
-        nav a button {
+        nav span button {
             font-size: 1rem;
             color: white;
             background-color: #f59e42;
@@ -46,13 +46,6 @@
             font-weight: bold;
             transition: 0.3s;
             height: 100%;
-        }
-
-        nav a button:hover {
-            padding: 6px 10px;
-            border: 1px solid #f59e42;
-            background-color: white;
-            color: #f59e42;
         }
 
         #content {
@@ -74,25 +67,20 @@
             text-align: center;
         }
 
-        #left-col a {
+        /* #left-col a {
             text-decoration: none;
-        }
+        } */
 
-        #left-col a button {
+        #left-col button {
             background-color: #f59e42;
             border-radius: 5px;
             border: 2px solid #733a0c;
             color: white;
             font-size: 1.3rem;
-            margin: 5px 0 5px 5px;
+            margin: 5px auto;
             padding: 10px 15px;
             transition: 0.3s;
             width: 80%;
-        }
-
-        #left-col a button:hover {
-            background-color: white;
-            color: #733a0c;
         }
 
         #main-cont {
@@ -147,6 +135,20 @@
             min-height: 100%;
         }
 
+        #goToTop {
+            border-radius: 100%;
+            background-color: #f59e42;
+            width: 48px;
+            height: 45px;
+            position: fixed;
+            bottom: 20px;
+            right: 10px;
+            z-index: 99;
+            cursor: pointer;
+            border: 2px solid #4b2607;
+            display: none;
+        }
+
         footer {
             background-color: #fff0df;
             color: #4b2607;
@@ -162,6 +164,20 @@
 
         #contactDiv img {
             margin: 2px;
+        }
+
+        @media (hover: hover) {
+            nav span button:hover {
+                padding: 6px 10px;
+                border: 1px solid #f59e42;
+                background-color: white;
+                color: #f59e42;
+            }
+
+            #left-col button:hover {
+                background-color: white;
+                color: #733a0c;
+            }
         }
 
         @media only screen and (max-width: 1200px) {
@@ -194,7 +210,7 @@
         }
 
         @media only screen and (max-width: 1024px) {
-            h2{
+            h2 {
                 font-size: 2.2rem;
             }
         }
@@ -209,38 +225,39 @@
                 font-size: 2.5rem;
             }
 
-            h2{
+            h2 {
                 font-size: 2rem;
             }
 
             nav {
                 width: 80%;
             }
+
             #contactDiv img {
                 margin: 2.5px;
             }
 
-            footer h2{
+            footer h2 {
                 font-size: 1.5rem;
             }
 
-            footer h3{
+            footer h3 {
                 font-size: 1.1rem;
             }
         }
 
         /*Сравнявано с минимум 320px, така като това е най-малката ширина на екран, според https://protostar.space */
         @media only screen and (max-width: 480px) {
-            nav a {
+            nav span {
                 margin: 0 3px;
                 padding: 8px 5px;
             }
 
-            h2{
+            h2 {
                 font-size: 1.7rem;
             }
 
-            h3{
+            h3 {
                 font-size: 1.5rem;
             }
 
@@ -249,6 +266,16 @@
             }
         }
     </style>
+
+    <script>
+        function goIndex() {
+            window.location.href = './index.html'
+        }
+
+        function goGallery(id) {
+            window.location.href = ('./gallery.html#' + id)
+        }
+    </script>
 </head>
 
 <body style="background-color: #fff0df;">
@@ -260,16 +287,16 @@
         </header>
 
         <nav style="margin: 15px auto 10px auto; justify-content: center;">
-            <a href="index.html#main-cont"><button><b>Explore Giraffes</b></button></a>
-            <a href="gallery.html#photos"><button><b>View Gallery</b></button></a>
-            <a href="gallery.html#videos"><button><b>Watch Videos</b></button></a>
+            <span><button onclick="goIndex()"><b>Explore Giraffes</b></button></span>
+            <span><button onclick="goGallery('photos')"><b>View Gallery</b></button></span>
+            <span><button onclick="goGallery('videos')"><b>Watch Videos</b></button></span>
         </nav>
 
         <div id="content" style="display: flex;">
             <div id="left-col">
-                <a href="index.html#main-cont"><button><b>Explore Giraffes</b></button></a>
-                <a href="gallery.html#photos"><button><b>View Gallery</b></button></a>
-                <a href="gallery.html#videos"><button><b>Watch Videos</b></button></a>
+                <button onclick="goIndex()"><b>Explore Giraffes</b></button>
+                <button onclick="goGallery('photos')"><b>View Gallery</b></button>
+                <button onclick="goGallery('videos')"><b>Watch Videos</b></button>
             </div>
 
             <div id="main-cont">
@@ -331,15 +358,38 @@
         </div>
     </main>
 
+    <div id="goToTop">
+        <p style="font-size: 20px; padding: 10px 20px; margin: auto;"><b>↑</b></p>
+    </div>
+
+    <script>
+        let topB = document.getElementById('goToTop');
+        window.onscroll = function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                topB.style.display = "block"
+            }
+            else {
+                topB.style.display = "none"
+            }
+        }
+
+        topB.addEventListener("click", function () {
+            
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            
+        })
+    </script>
+
     <footer>
         <h2>All rights reserved © 2025 Giraffopedia</h2>
         <h3>Natalia Dimitrova</h3>
-        <h4 style="text-align: center; font-size: 15px; margin: 3px auto 2px auto; color: #733a0c;">Свържи се с нас</h4>
+        <h4 style="text-align: center; font-size: 15px; margin: 3px auto 2px auto; color: #4b2607;">Свържи се с нас</h4>
         <!--Икони от https://icons8.com -->
         <div id="contactDiv">
-            <img width="25" height="25" src="https://img.icons8.com/ios/50/facebook-new.png" alt="Facebook"/>
-            <img width="25" height="25" src="https://img.icons8.com/ios/50/instagram-new--v1.png" alt="Instagram"/>
-           <img width="25" height="25" src="https://img.icons8.com/ios/50/gmail--v1.png" alt="Gmail"/>
+            <img width="25" height="25" src="https://img.icons8.com/ios/50/facebook-new.png" alt="Facebook" />
+            <img width="25" height="25" src="https://img.icons8.com/ios/50/instagram-new--v1.png" alt="Instagram" />
+            <img width="25" height="25" src="https://img.icons8.com/ios/50/gmail--v1.png" alt="Gmail" />
         </div>
     </footer>
 </body>
