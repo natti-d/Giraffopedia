@@ -13,7 +13,7 @@
             top: 0;
         }
 
-        header {
+        #heading {
             width: 100%;
         }
 
@@ -168,7 +168,7 @@
             display: none;
         }
 
-        footer {
+        #footing {
             background-color: #fff0df;
             color: #4b2607;
             width: 100%;
@@ -204,7 +204,7 @@
         }
 
         @media only screen and (max-width: 1200px) {
-            header {
+            #heading {
                 width: 40%;
             }
 
@@ -281,7 +281,7 @@
 
 
         @media only screen and (max-width: 768px) {
-            header {
+            #heading {
                 width: 80%;
             }
 
@@ -309,11 +309,11 @@
                 margin: 2.5px;
             }
 
-            footer h2 {
+            #footing h2 {
                 font-size: 1.5rem;
             }
 
-            footer h3 {
+            #footing h3 {
                 font-size: 1.1rem;
             }
         }
@@ -360,7 +360,7 @@
 
 <body style="background-color: #fff0df;">
     <main style="justify-content: center;">
-        <header style="display: flex; justify-content: center; border-bottom: 5px dashed #f59e42; margin: 0 auto;">
+        <header style="display: flex; justify-content: center; border-bottom: 5px dashed #f59e42; margin: 0 auto;" id="heading">
             <img src="./images/icon_giraffe.png" alt="Giraffe Icon" style="align-items: center; margin: auto 0;"
                 width="90px">
             <h1>Giraffopedia</h1>
@@ -460,7 +460,7 @@
         })
     </script> 
 
-    <footer>
+    <footer id="footing">
         <h2>All rights reserved © 2025 Giraffopedia</h2>
         <h3>Natalia Dimitrova</h3>
         <h4 style="text-align: center; font-size: 15px; margin: 3px auto 2px auto; color: #733a0c;">Свържи се с нас</h4>
